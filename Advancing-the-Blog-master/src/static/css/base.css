@@ -1,5 +1,5 @@
 h1 {
-    color: black;
+    color: white;
     font-family: 'Josefin Slab', serif;
 }
 
@@ -12,11 +12,15 @@ h1 {
     display:none;
 }
 body {
-	background-color: e6e6e6;
-	background-image : url("fevicon.png");
+	/*background-color: e6e6e6;*/
+	/*background-color: #417690;*/
+	background-image : "{% static 'images/download.jpeg' %}" height="200px" width="200px";
 	background-repeat: repeat-y;
 }
 
 .snt_background {
 	background : "";
 }
+/*.navbar {
+	background: #417690 !important; 
+}*/
