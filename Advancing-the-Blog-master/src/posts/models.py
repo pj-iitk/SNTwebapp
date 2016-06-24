@@ -21,6 +21,7 @@ from .utils import get_read_time
 #Post.objects.all()
 #Post.objects.create(user=user, title="Some time")
 
+
 class PostManager(models.Manager):
     def active(self, *args, **kwargs):
         # Post.objects.all() = super(PostManager, self).all()
@@ -56,7 +57,7 @@ class Post(models.Model):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField()
-    tags=models.CharField(max_length=120, null=True, blank=False)
+    tags=models.CharField(max_length=120,  null=True, blank=False)
     draft = models.BooleanField(default=False)
     publish = models.DateField(auto_now=False, auto_now_add=False)
     read_time =  models.IntegerField(default=0) # models.TimeField(null=True, blank=True) #assume minutes
