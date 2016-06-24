@@ -194,10 +194,10 @@ def post_create(request):
 
 def snt(request):
 	today = timezone.now().date()
-	queryset_list_snt = Post.objects.active_snt() #.order_by("-timestamp")
+	queryset_list_snt = Post.objects.active_snt()#filter(title='Games') #.order_by("-timestamp")
 	
 	if request.user.is_staff or request.user.is_superuser:
-		queryset_list_snt = Post.objects.all()
+		queryset_list_snt = Post.objects.active_snt()#filter(tags='SNT Council')#all()
 	
 	query = request.GET.get("q")
 	if query:
