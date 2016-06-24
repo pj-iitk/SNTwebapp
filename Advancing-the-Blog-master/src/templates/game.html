@@ -2,15 +2,19 @@
 {% block content %}
 
 
+<style>
+
+</style>
+<div class="snt_background">
 <div class='col-sm-6 col-sm-offset-3'>
-    <h1>News Feed</h1>
+    <h1>Games News Feed</h1>
     <hr>
 <form method='GET' action='' class='row'>
         <div class='col-sm-6'>
             <div class='input-group '>
                 <input class='form-control' type='text' name='q' placeholder='Search posts' value='{{ request.GET.q }}'/>
                 <span class='input-group-btn'>
-                    <!-- <input class='btn btn-default' type='submit' value='Search' /> -->
+                    
                     <button class='btn btn-default' type='submit'>Search <i class="fa fa-search"></i></button>
                 </span>
             </div>
@@ -47,15 +51,15 @@
             Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
         </span>
 
-        {% if object_list.has_next %}
+        {% if object_list_snt.has_next %}
             <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
         {% endif %}
     </span>
 </div>
 
 
-</div>
 
+</div>
 </div>
 
 {% endblock content %}

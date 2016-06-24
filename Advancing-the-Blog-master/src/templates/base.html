@@ -20,7 +20,7 @@
 {% block head_extra %} {% endblock head_extra %}
 </head>
 <body>
- <div class="inner" style="background-image: url({% static "images/download.jpeg" %}");>
+ <!-- <div class="inner" style="background-image: url({% static "images/download.jpeg" %}");> -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
@@ -81,7 +81,7 @@ fjs.parentNode.insertBefore(js, fjs);
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games and Sports <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/?q=SNT+Council">Home</a></li>
+                <li><a href="/game">Home</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Athletics</a></li>
                 <li><a href="#">Basketball</a></li>
@@ -93,7 +93,7 @@ fjs.parentNode.insertBefore(js, fjs);
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cultural Council <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/?q=SNT+Council">Home</a></li>
+                <li><a href="/cultural">Home</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Dance</a></li>
                 <li><a href="#">Music</a></li>
@@ -107,14 +107,15 @@ fjs.parentNode.insertBefore(js, fjs);
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FMC <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/?q=SNT+Council">Home</a></li>
+                <li><a href="/fmc">Home</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Photography</a></li>
                 <li><a href="#">Animation</a></li>
                 <li><a href="#">Something else here</a></li>
               </ul>
             </li>
-            <li><a href='#'>Vox Populi</a></li>
+            <li><a href="/vox">Vox Populi</a></li>
+            <li><a href="/senate">Senate</a></li>
           </ul>
 
           
@@ -142,7 +143,7 @@ fjs.parentNode.insertBefore(js, fjs);
     </nav>
 <br> <br><br> 
 
-<img src ="{% static 'images/download.jpeg' %}" height="200px" width="200px"/>
+<!-- <img src ="{% static 'images/download.jpeg' %}" height="200px" width="200px"/> -->
 {% block content %}{% endblock content %}
 </div>
 
