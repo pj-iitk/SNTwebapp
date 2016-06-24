@@ -12,5 +12,11 @@ h1 {
     display:none;
 }
 body {
-	/*background-color: e6e6e6;*/
+	background-color: e6e6e6;
+	background-image : url("fevicon.png");
+	background-repeat: repeat-y;
+}
+
+.snt_background {
+	background : "";
 }

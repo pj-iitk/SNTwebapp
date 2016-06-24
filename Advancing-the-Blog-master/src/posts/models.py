@@ -27,7 +27,7 @@ class PostManager(models.Manager):
         return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
     def active_snt(self, *args, **kwargs):
         # Post.objects.all() = super(PostManager, self).all()
-        return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now(), tags__exact='SNT Council')    
+        return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now(), tags=("[u'SNT Council']"))    
 
 
 def upload_location(instance, filename):
