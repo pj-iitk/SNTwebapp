@@ -41,21 +41,21 @@
 {% endfor %}
 
 
-<div class="pagination">
-    <span class="step-links">
+<ul class="pagination">
+    <!-- <span class="step-links"> -->
         {% if object_list.has_previous %}
-            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+            <li><a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a></li>
         {% endif %}
 
-        <span class="current">
-            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
-        </span>
+        <!-- <span class="current"> -->
+            <li><a>Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.</a></li>
+        <!-- </span> -->
 
-        {% if object_list_snt.has_next %}
-            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+        {% if object_list.has_next %}
+            <li><a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a></li>
         {% endif %}
-    </span>
-</div>
+    <!-- </span> -->
+</ul>
 
 
 

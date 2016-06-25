@@ -193,7 +193,7 @@ def snt(request):
 				Q(user__last_name__icontains=query) |
 				Q(tags__icontains=query)
 				).distinct()
-	paginator = Paginator(queryset_list_snt, 8) # Show 25 contacts per page
+	paginator = Paginator(queryset_list_snt, 10) # Show 25 contacts per page
 	page_request_var = "page"
 	page = request.GET.get(page_request_var)
 	try:
@@ -207,7 +207,7 @@ def snt(request):
 
 
 	context = {
-		"object_list_snt": queryset_list_snt, 
+		"object_list": queryset, 
 		"title": "List",
 		"page_request_var": page_request_var,
 		"today": today,
@@ -216,10 +216,10 @@ def snt(request):
 
 def game(request):
 	today = timezone.now().date()
-	queryset_list = Post.objects.filter(tags="[u'Games and Sports']")#active_snt() #.order_by("-timestamp")
+	queryset_list = Post.objects.filter(tags__icontains="u'Games and Sports'", publish__lte=timezone.now())#active_snt() #.order_by("-timestamp")
 	
 	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = Post.objects.filter(tags="[u'Games and Sports']")#active_snt()
+		queryset_list = Post.objects.filter(tags__icontains="u'Games and Sports'", publish__lte=timezone.now())#active_snt()
 	
 	query = request.GET.get("q")
 	if query:
@@ -244,7 +244,7 @@ def game(request):
 
 
 	context = {
-		"object_list": queryset_list, 
+		"object_list": queryset, 
 		"title": "List",
 		"page_request_var": page_request_var,
 		"today": today,
@@ -254,10 +254,10 @@ def game(request):
 
 def cultural(request):
 	today = timezone.now().date()
-	queryset_list = Post.objects.filter(tags="[u'Cultural Council']")#active_snt() #.order_by("-timestamp")
+	queryset_list = Post.objects.filter(tags__icontains="u'Cultural Council'", publish__lte=timezone.now())#active_snt() #.order_by("-timestamp")
 	
 	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = Post.objects.filter(tags="[u'Cultutal Council']")#active_snt()
+		queryset_list = Post.objects.filter(tags__icontains="u'Cultutal Council'", publish__lte=timezone.now())#active_snt()
 	
 	query = request.GET.get("q")
 	if query:
@@ -282,7 +282,7 @@ def cultural(request):
 
 
 	context = {
-		"object_list": queryset_list, 
+		"object_list": queryset, 
 		"title": "List",
 		"page_request_var": page_request_var,
 		"today": today,
@@ -293,10 +293,10 @@ def cultural(request):
 
 def fmc(request):
 	today = timezone.now().date()
-	queryset_list = Post.objects.filter(tags="[u'FMC']")#active_snt() #.order_by("-timestamp")
+	queryset_list = Post.objects.filter(tags__icontains="u'FMC'", publish__lte=timezone.now())#active_snt() #.order_by("-timestamp")
 	
 	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = Post.objects.filter(tags="[u'FMC']")#active_snt()
+		queryset_list = Post.objects.filter(tags__icontains="u'FMC'", publish__lte=timezone.now())#active_snt()
 	
 	query = request.GET.get("q")
 	if query:
@@ -321,7 +321,7 @@ def fmc(request):
 
 
 	context = {
-		"object_list": queryset_list, 
+		"object_list": queryset, 
 		"title": "List",
 		"page_request_var": page_request_var,
 		"today": today,
@@ -331,10 +331,10 @@ def fmc(request):
 
 def vox(request):
 	today = timezone.now().date()
-	queryset_list = Post.objects.filter(tags="[u'Vox Populi']")#active_snt() #.order_by("-timestamp")
+	queryset_list = Post.objects.filter(tags__icontains="u'Vox Populi'", publish__lte=timezone.now())#active_snt() #.order_by("-timestamp")
 	
 	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = Post.objects.filter(tags="[u'Vox Populi']")#active_snt()
+		queryset_list = Post.objects.filter(tags__icontains="u'Vox Populi'", publish__lte=timezone.now())#active_snt()
 	
 	query = request.GET.get("q")
 	if query:
@@ -359,7 +359,7 @@ def vox(request):
 
 
 	context = {
-		"object_list": queryset_list, 
+		"object_list": queryset, 
 		"title": "List",
 		"page_request_var": page_request_var,
 		"today": today,
@@ -369,10 +369,10 @@ def vox(request):
 
 def senate(request):
 	today = timezone.now().date()
-	queryset_list = Post.objects.filter(tags="[u'Senate']")#active_snt() #.order_by("-timestamp")
+	queryset_list = Post.objects.filter(tags__icontains="u'Senate'", publish__lte=timezone.now())#active_snt() #.order_by("-timestamp")
 	
 	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = Post.objects.filter(tags="[u'Senate']")#active_snt()
+		queryset_list = Post.objects.filter(tags__icontains="u'Senate'", publish__lte=timezone.now())#active_snt()
 	
 	query = request.GET.get("q")
 	if query:
@@ -397,9 +397,11 @@ def senate(request):
 
 
 	context = {
-		"object_list": queryset_list, 
+		"object_list": queryset, 
 		"title": "List",
 		"page_request_var": page_request_var,
 		"today": today,
 	}
 	return render(request, "senate.html", context)	
+
+
