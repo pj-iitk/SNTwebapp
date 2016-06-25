@@ -16,14 +16,14 @@
 
 
 {% block content %}
-<div class="inner" style="background: black">
+<div class="inner" style="color:white ;background: black;">
 
 <div class='col-sm-6 col-sm-offset-3'>
     {% if instance.image %}
     <img src='{{ instance.image.url }}' class='img-responsive' />
     {% endif %}
-<h1>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}{{ instance.publish }}</small></h1>
-
+    <br><h1>{{ title }} <small>{% if instance.draft %}<span style='color:red;'>Draft</span> {% endif %}{{ instance.publish }}</small></h1>
+<br>
 <!-- {% if instance.read_time|time:"i" <= "01" %} < 1 minute {% else %}{{ instance.read_time|time:"i" }} minutes {% endif %} -->
 
 
@@ -70,7 +70,7 @@ Linkedin
     <br/>
 
     <div>
-
+    <br><br><br><br><br><br>
         <p class='lead'>Comments</p>
         {% if request.user.is_authenticated %}
         <form method="POST" action="."> {% csrf_token %}
